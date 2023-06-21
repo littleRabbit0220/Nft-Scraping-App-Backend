@@ -5,9 +5,8 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/getData', (req, res) => {
-  axios.get("https://raritysniper.com/nft-drops-calendar")
+  axios.get("https://raritysniper.com/nft-drops-calendar?saleDate="+req.query.saleDate)
   .then(response => {
-    console.log(response)
     res.send(response.data);
   })
   .catch(err => res.send(err))
